@@ -1,0 +1,31 @@
+#manage-your-work{
+  .container{
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    .content{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .content-child{
+        display: flex;
+
+        align-items: center;
+        padding: 0.5rem 0rem;
+
+        p {
+          margin: 0 0 0 0.5rem;
+        }
+        i{
+          color: $theme;
+        }
+
+      }
+      .btn-theme{
+        margin-top: 2rem;
+        width: 40%;
+      }
+    }
+  }
+}

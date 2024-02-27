@@ -1,0 +1,65 @@
+main {
+
+
+  .showcase {
+    
+    
+    .background-image {
+      display: none;
+      @include xxl {
+        display: block;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .container {
+      padding-top: 6rem;
+      padding-bottom: 20rem;
+      .content {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 2.5rem;
+        text-align: center;
+
+          @include xxl{
+            display: flex;
+            flex-direction: column;
+            width: 41%;
+
+            text-align: start;
+          }
+        }
+
+        h1 {  
+          @include xxl{
+            padding-right: 8rem;
+          } 
+        }
+        p{
+
+          @include xl{
+            padding-right: 5rem;
+          } 
+        }
+        .btn-theme-s {   
+          @include xxl{
+            width: 13rem;
+          }      
+        }
+        h6{
+          @include xxl{
+            padding-top: 3rem;
+          } 
+        }
+        .brands {
+
+          img {
+            padding-right: 1rem;
+          }
+        }
+    }
+  }
+}
+
+
+
