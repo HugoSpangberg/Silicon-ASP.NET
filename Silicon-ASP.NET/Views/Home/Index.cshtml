@@ -1,6 +1,10 @@
-﻿<div id="showcase">
-    <partial name="~/Views/Shared/Sections/_ShowcasePartial.cshtml" />
+﻿@using Silicon_ASP.NET.Models.Views
+@model HomeIndexViewModel
+
+<div id="showcase">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_ShowcasePartial.cshtml", Model.Showcase)
 </div>
 <div id="tools">
-    <partial name="~/Views/Shared/Sections/_ToolsPartial.cshtml" />
+    @await Html.PartialAsync("~/Views/Shared/Sections/_ToolsPartial.cshtml", Model.Showcase)
+
 </div>
