@@ -24,6 +24,27 @@ public class authController : Controller
         return RedirectToAction("SignIn", "Auth");
     }
 
+    [Route("/signin")]
+    [HttpGet]
+    public IActionResult SignIn()
+    {
+        var viewModel = new SignInViewModel();
+        return View(viewModel);
+    }
+
+    [Route("/signin")]
+    [HttpPost]
+    public IActionResult SignIn(SignInViewModel viewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            viewModel.ErrorMessage = "Incorrect email or password";
+            return View(viewModel);
+
+        }
+
+        return RedirectToAction("Account", "Index");
+    }
 
 
 }

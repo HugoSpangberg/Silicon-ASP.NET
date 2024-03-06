@@ -15,6 +15,6 @@ public class SignInModel
     public string Password { get; set; } = null!;
 
 
-    [Display(Name = "Remeber me", Order = 2)]
+    [Display(Name = "Remember me", Order = 2)]
     public bool RememberMe { get; set; }
 }
