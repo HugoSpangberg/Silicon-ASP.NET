@@ -1,0 +1,44 @@
+﻿@using Infrastructure.Entities
+
+@inject SignInManager<UserEntity> _signInManger
+
+<header>
+    <div class="container">
+        <a id="logo" asp-controller="/" asp-action="home"><img src="~/images/solid.svg" alt=""></a>
+        <div id="menu">
+            <nav>
+                <a class="menu-link" href="#showcase">Overview</a>
+                <a class="menu-link" href="#tools">Features</a>
+                @if (_signInManger.IsSignedIn(User))
+                {
+                    <a class="menu-link" asp-action="Index" asp-controller="Courses">Courses</a>
+
+                }
+                <a class="menu-link" asp-action="Index" asp-controller="Contact">Contact</a>
+            </nav>
+        </div>
+
+        <div class="btn-switch">
+            <label>Light</label>
+            <label class="switch" for="switch-mode">
+                <input type="checkbox" id="switch-mode" />
+                <span class="slider round"></span>
+            </label>
+            <label>Dark</label>
+        </div>
+        <div class="account-buttons">
+            @if (_signInManger.IsSignedIn(User))
+            {
+                <a class="btn-gray" asp-controller="Account" asp-action="SignOut"><i class="fa-regular fa-right-from-bracket"></i><span>Sign Out</span></a>
+
+
+            }
+            else
+            {
+                <a class="btn-gray" asp-controller="Account" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign In</span></a>
+                <a class="btn-theme" asp-controller="Account" asp-action="signup"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+            }
+           
+        </div>
+    </div>
+</header>

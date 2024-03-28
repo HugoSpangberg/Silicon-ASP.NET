@@ -1,0 +1,43 @@
+﻿@model SignInViewModel
+
+<section id="signin">
+    <div class="container">
+        <form method="post" asp-controller="account" asp-action="signin" novalidate>
+            <div class="error-message">
+            </div>
+            <h1>Welcome Back</h1>
+            <p>Don’t have an account yet? <a asp-controller="account" asp-action="signup">Sign up here.</a>.</p>
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <div class="alert alert-danger">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
+
+            <div class="content">
+
+                <div id="form-email" class="input-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" value="hugo@domain.com" />
+                </div>
+                <div id="form-password" class="input-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" value="Bytmig123!" />
+                </div>
+
+                <div id="form-remember" class="checkbox-group">
+                    <input asp-for="RememberMe" />
+                    <label asp-for="RememberMe">Keep me signed in.</label>
+                </div>
+                <button id="form-button" class="btn-theme-s" type="submit">Sign in</button>
+                <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+                <hr />
+                <div id="external-signin">
+                    <a class="btn-gray"><i class="fa-brands fa-google"></i>Google</a>
+                    <a class="btn-gray"><i class="fa-brands fa-facebook-f"></i>Facebook</a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
