@@ -1,10 +1,8 @@
-﻿
-namespace Infrastructure.Entities;
+﻿namespace Silicon_WebAPI.Models;
 
-public class CourseEntity
+public class CourseModel
 {
     public int Id { get; set; }
-    public string imageUrl { get; set; } = null!;
     public string Title { get; set; } = null!;
     public string? Price { get; set; }
     public string? DiscountPrice { get; set; }

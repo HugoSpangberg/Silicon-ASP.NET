@@ -1,0 +1,108 @@
+#courses {
+    padding-top: 3rem;
+
+
+
+    .grid-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+
+        a {
+            text-decoration: none;
+            color: $gray-700;
+        }
+
+        .courses-content {
+            @include shadow-s;
+            border-radius: 8px;
+            position: relative;
+            :hover {
+                background-color: $gray-100;
+            }
+
+            img {
+                width: 100%;
+                border-radius: 8px 8px 0 0;
+            }
+
+            h4 {
+                @include text-s;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 2px .5rem;
+                border-radius: 8px;
+                background-color: $success;
+                color: white;
+                margin: 1rem;
+                z-index: 1;
+            }
+
+            .courses-content-child {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                h5 {
+                    height: 4rem;
+                }
+
+                .discount-price {
+                    display: flex;
+
+                    .discount {
+                        margin-right: 10px;
+                        @include h6;
+                        color: $danger;
+                    }
+
+                    h6 {
+                        color: $gray-600 !important;
+                        text-decoration: line-through;
+                        @include text-m
+                    }
+                }
+
+                h6 {
+                    color: $theme;
+                }
+
+                .content-child {
+                    display: flex;
+                    align-items: center;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    i {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .work-with-us {
+        margin-top: 4rem;
+        display: flex;
+        background-color: $gray-100;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2rem;
+
+        .work-content {
+            width: 50%;
+
+            p {
+                margin: 0;
+                font-size: large;
+            }
+
+            span {
+                color: $theme;
+            }
+        }
+    }
+}

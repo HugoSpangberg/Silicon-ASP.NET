@@ -989,6 +989,109 @@ main .showcase .container .brands img {
   gap: 20px;
 }
 
+#courses {
+  padding-top: 3rem;
+}
+#courses .grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+#courses .grid-content a {
+  text-decoration: none;
+  color: #565973;
+}
+#courses .grid-content .courses-content {
+  box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+  border-radius: 8px;
+  position: relative;
+}
+#courses .grid-content .courses-content :hover {
+  background-color: #F3F6FF;
+}
+#courses .grid-content .courses-content img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+#courses .grid-content .courses-content h4 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 0.5rem;
+  border-radius: 8px;
+  background-color: #22C55E;
+  color: white;
+  margin: 1rem;
+  z-index: 1;
+}
+#courses .grid-content .courses-content .courses-content-child {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+#courses .grid-content .courses-content .courses-content-child h5 {
+  height: 4rem;
+}
+#courses .grid-content .courses-content .courses-content-child .discount-price {
+  display: flex;
+}
+#courses .grid-content .courses-content .courses-content-child .discount-price .discount {
+  margin-right: 10px;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 16px !important;
+  color: #EF4444;
+}
+#courses .grid-content .courses-content .courses-content-child .discount-price h6 {
+  color: #9397AD !important;
+  text-decoration: line-through;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+#courses .grid-content .courses-content .courses-content-child h6 {
+  color: #6366F1;
+}
+#courses .grid-content .courses-content .courses-content-child .content-child {
+  display: flex;
+  align-items: center;
+}
+#courses .grid-content .courses-content .courses-content-child .content-child p {
+  margin: 0;
+}
+#courses .grid-content .courses-content .courses-content-child .content-child i {
+  padding: 10px;
+}
+#courses .work-with-us {
+  margin-top: 4rem;
+  display: flex;
+  background-color: #F3F6FF;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+#courses .work-with-us .work-content {
+  width: 50%;
+}
+#courses .work-with-us .work-content p {
+  margin: 0;
+  font-size: large;
+}
+#courses .work-with-us .work-content span {
+  color: #6366F1;
+}
+
 footer {
   padding: 50px 0 30px 0;
   line-height: 160%;

@@ -1,7 +1,57 @@
 ﻿@model IEnumerable<CourseEntity>
+    <section id="courses">
+
+        <div class="container">
+            <h1>Courses</h1>
+            <div class="grid-content">
 
 
-@foreach (var course in Model)
-{
-    <div>@course.Title</div>
-}
+                @foreach (var course in Model)
+                {
+                   <a asp-action="details" asp-controller="courses">
+                    <div class="courses-content">
+                        <img src="~/images/courses/@course.imageUrl" alt="">
+                        @if (course.IsBestSeller == true)
+                        {
+                            <h4>Best Seller</h4>
+                        }
+                        <div class="courses-content-child">
+                            <h5>@course.Title</h5>
+                            <p>By @course.Author</p>
+                            @if (course.DiscountPrice == null)
+                            {
+                                <h6>@course.Price</h6>
+                            }
+                            else
+                            {
+                                <div class="discount-price">
+                                    <h2 class="discount">@course.DiscountPrice</h2>
+                                    <h6>@course.Price</h6>
+                                </div>
+                            }
+
+                            <hr>
+                            <div class="content-child">
+                                <i class="fa-regular fa-clock"></i>
+                                <p>@course.Hours Hours</p>
+                                <i class="fa-light fa-thumbs-up"></i>
+                                <p>@course.LikesInProcent % (@course.LikesInNumbers K)</p>
+
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                }
+            </div>
+            <div class="work-with-us">
+                <div class="work-content">
+                    <p>Ready to get started?</p>
+                    <h1>Take Your <span>Skills</span> to the Next Level</h1>
+                    <button class="btn-theme-s">Work with us</button>
+                </div>
+                <div class="image-content">
+                    <img src="~/images/courses/illustration-female.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>

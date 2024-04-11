@@ -8,11 +8,10 @@
         <div id="menu">
             <nav>
                 <a class="menu-link" href="#showcase">Overview</a>
-                <a class="menu-link" href="#tools">Features</a>
+                <a class="menu-link" href="#feature">Features</a>
                 @if (_signInManger.IsSignedIn(User))
                 {
-                    <a class="menu-link" asp-action="Index" asp-controller="Courses">Courses</a>
-
+                    <a class="menu-link" asp-action="allcourses" asp-controller="Courses">Courses</a>
                 }
                 <a class="menu-link" asp-action="Index" asp-controller="Contact">Contact</a>
             </nav>
@@ -30,8 +29,6 @@
             @if (_signInManger.IsSignedIn(User))
             {
                 <a class="btn-gray" asp-controller="Account" asp-action="SignOut"><i class="fa-regular fa-right-from-bracket"></i><span>Sign Out</span></a>
-
-
             }
             else
             {

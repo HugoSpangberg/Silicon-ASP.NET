@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Silicon-ASP.NET", "Silicon-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5E337232-9607-4FD2-9AC2-869BD9AFE3DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silicon_WebAPI", "Silicon_WebAPI\Silicon_WebAPI.csproj", "{9A8C2D9E-CE58-4C9B-97F4-C8F22749EBFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Silicon_WebAPI", "Silicon_WebAPI\Silicon_WebAPI.csproj", "{9A8C2D9E-CE58-4C9B-97F4-C8F22749EBFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

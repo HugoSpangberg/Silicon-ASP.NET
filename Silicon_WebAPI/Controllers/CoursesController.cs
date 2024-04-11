@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Silicon_WebAPI.Dtos;
+using Silicon_WebAPI.Models;
 
 namespace Silicon_WebAPI.Controllers
 {
@@ -50,7 +51,22 @@ namespace Silicon_WebAPI.Controllers
 
                 _context.Courses.Add(courseEntity);
                 await _context.SaveChangesAsync();
-                return Created("", courseEntity);
+
+                var courseModel = new CourseModel
+                {
+                    Id = courseEntity.Id,
+                    Title = courseEntity.Title,
+                    Price = courseEntity.Price,
+                    DiscountPrice = courseEntity.DiscountPrice,
+                    Hours = courseEntity.Hours,
+                    IsBestSeller = courseEntity.IsBestSeller,
+                    LikesInNumbers = courseEntity.LikesInNumbers,
+                    LikesInProcent = courseEntity.LikesInProcent,
+                    Author = courseEntity.Author
+                };
+
+
+                return Created("", courseModel);
 
             }
 
