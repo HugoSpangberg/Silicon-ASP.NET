@@ -13,15 +13,25 @@ namespace Silicon_WebAPI.Controllers
         private readonly ApiDbContext _context = context;
 
         [HttpPost]
-        public async Task<IActionResult> Create(string email)
+        public async Task<IActionResult> Create(SubscribeEntity entity)
         {
-            if (!string.IsNullOrEmpty(email))
+            if (ModelState.IsValid)
             {
-                if (!await _context.Subscribers.AnyAsync(x => x.Email == email))
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == entity.Email))
                 {
                     try
                     {
-                        var subscriberEntity = new SubscribeEntity { Email = email };
+                        var subscriberEntity = new SubscribeEntity 
+                        { 
+                            Email = entity.Email,
+                            DailyNewsletter = entity.DailyNewsletter,
+                            AdvertisingUpdate = entity.AdvertisingUpdate,
+                            WeekInReview = entity.WeekInReview,
+                            EventUpdates = entity.EventUpdates,
+                            StartupsWeekly = entity.StartupsWeekly,
+                            Podcasts = entity.Podcasts
+
+                        };
                         _context.Subscribers.Add(subscriberEntity);
                         await _context.SaveChangesAsync();
                         return Created("", null);

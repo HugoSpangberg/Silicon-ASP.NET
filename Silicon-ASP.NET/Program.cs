@@ -20,13 +20,25 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/signin";
+    x.Cookie.HttpOnly = true;
+    x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    x.ExpireTimeSpan = TimeSpan.FromHours(1);
+    x.SlidingExpiration = true;
+});
+
 builder.Services.AddScoped<AddressManager>();
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 app.UseHsts();
 app.UseStatusCodePagesWithReExecute("/error", "?statusCode=[0]");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

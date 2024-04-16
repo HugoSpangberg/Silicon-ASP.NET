@@ -1,12 +1,16 @@
 ﻿using Infrastructure.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Silicon_ASP.NET.ViewModels;
+using System.Net.Http;
 using System.Text;
 
 namespace Silicon_ASP.NET.Controllers
 {
-    public class DefaultController : Controller
+    public class DefaultController(HttpClient httpClient) : Controller
     {
+        private readonly HttpClient _httpClient = httpClient;
+
         [Route("/")]
         public IActionResult Home() => View();
 
@@ -14,29 +18,30 @@ namespace Silicon_ASP.NET.Controllers
         public IActionResult Error404(int statusCode) => View();
 
 
-        public IActionResult Subscribe()
-        {
-            ViewData["Subscribed"] = false;
-
-            return View();
-        }
-
         [HttpPost]
-        public async Task<IActionResult> Subscribe(SubscribeEntity model)
+        public async Task<IActionResult> Subscribe(SubscribeViewModel model)
         {
             if (ModelState.IsValid)
             {
-                using var http = new HttpClient();
-                var json = JsonConvert.SerializeObject(model);
-                using var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var respone = await http.PostAsync("https://localhost:7078/api/subscribers", content);
-
-                if (respone.IsSuccessStatusCode) 
+                var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("https://localhost:7078/api/subscribers", content);
+                if (response.IsSuccessStatusCode)
                 {
-                    ViewData["Subscribed"] = true;
+                    TempData["StatusMessage"] = "You are now subscribed";
                 }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                {
+                    TempData["StatusMessage"] = "You are already subscribed";
+
+                }
+
             }
-            return View();
+            else
+            {
+                TempData["StatusMessage"] = "Invalid email address";
+
+            }
+            return RedirectToAction("Home", "Default", "_newsletter");
         }
     }
 }

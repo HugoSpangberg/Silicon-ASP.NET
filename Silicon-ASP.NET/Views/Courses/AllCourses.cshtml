@@ -18,15 +18,15 @@
                         <div class="courses-content-child">
                             <h5>@course.Title</h5>
                             <p>By @course.Author</p>
-                            @if (course.DiscountPrice == null)
+                            @if (course.DiscountPrice == 0)
                             {
-                                <h6>@course.Price</h6>
+                                <h6>$@course.Price</h6>
                             }
                             else
                             {
                                 <div class="discount-price">
                                     <h2 class="discount">@course.DiscountPrice</h2>
-                                    <h6>@course.Price</h6>
+                                    <h6>$@course.Price</h6>
                                 </div>
                             }
 
@@ -35,7 +35,7 @@
                                 <i class="fa-regular fa-clock"></i>
                                 <p>@course.Hours Hours</p>
                                 <i class="fa-light fa-thumbs-up"></i>
-                                <p>@course.LikesInProcent % (@course.LikesInNumbers K)</p>
+                                <p>(@course.LikesInProcent.ToString("P0")) (@(Math.Round(course.LikesInNumbers / 1000, 1))K)</p>
 
                             </div>
                         </div>

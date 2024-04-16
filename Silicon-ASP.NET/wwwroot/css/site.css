@@ -1092,6 +1092,26 @@ main .showcase .container .brands img {
   color: #6366F1;
 }
 
+.error-404 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.error-404 .container {
+  display: block;
+  justify-content: center;
+}
+.error-404 .container .content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error-404 .container .content .button-center {
+  padding-top: 2rem;
+}
+
 footer {
   padding: 50px 0 30px 0;
   line-height: 160%;

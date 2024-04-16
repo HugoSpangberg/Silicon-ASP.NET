@@ -1,0 +1,22 @@
+.error-404 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .container {
+        display: block;
+        justify-content: center;
+
+        .content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .button-center {
+                padding-top: 2rem;
+            }
+        }
+    }
+}
