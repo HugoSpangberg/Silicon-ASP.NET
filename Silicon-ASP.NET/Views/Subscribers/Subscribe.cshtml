@@ -40,11 +40,14 @@
 
                 </div>
                 <div class="email-subscribe">
-
-                    <input type="text" asp-for="Email">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input asp-for="Email">
+                    <span asp-validation-for="Email"></span>
                     <button class="btn-theme" type="submit">Subscribe *</button>
                 </div>
-                @TempData["StatusMessage"]
+                <div class="status-message ViewBag.StatusClass">
+                    @TempData["StatusMessage"]
+                </div>
             </form>
 
             <p>* Yes, I agree to the <a href="">terms</a> and <a href="">privacy policy.</a></p>
@@ -52,3 +55,5 @@
 
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/Sections/_ValidationScriptPartial.cshtml")

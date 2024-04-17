@@ -12,7 +12,7 @@ public class UserEntity : IdentityUser
     [ProtectedPersonalData]
     public string? Biography { get; set; }
 
-
+    public string? ProfileImage { get; set; } = "avatar.png";
 
     public ICollection<AddressEntity> Addresses { get; set; } = [];
 

@@ -72,6 +72,6 @@ namespace Silicon_ASP.NET.ViewModels
 
         public string Email { get; set; } = null!;
 
-        public string? ProfileImage { get; set; }
+        public string? ProfileImage { get; set; } = "avatar.png";
     }
 }

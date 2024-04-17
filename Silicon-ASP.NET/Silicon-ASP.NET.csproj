@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Views\auth\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 </Project>

@@ -1,60 +1,74 @@
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-#newsletter{
-  background-color: $gray-100;
-  .container{
-    padding: 5rem 0;
-    .container-child{
-      margin: 0 15rem;
+#newsletter {
+    background-color: $gray-100;
 
-      .headline{
-        display: flex;
-        img{
-          margin-left: 2rem;
-        }
-      }
-      .content {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        h5 {
-          width: 50%;
-        }
-  
-        .content-parent {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          .content-child {
-            label{
-              padding-left: .2rem;
+    .container {
+        padding: 5rem 0;
+
+        .container-child {
+            margin: 0 15rem;
+
+            .headline {
+                display: flex;
+
+                img {
+                    margin-left: 2rem;
+                }
             }
-          }
+
+            .content {
+                display: grid;
+                grid-template-columns: auto 1fr;
+
+                h5 {
+                    width: 50%;
+                }
+
+                .content-parent {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+
+                    .content-child {
+                        label {
+                            padding-left: .2rem;
+                        }
+                    }
+                }
+            }
+
+            .email-subscribe {
+                padding-top: 2rem;
+                display: flex;
+                gap: 1rem;
+
+
+
+                input {
+                    position: relative;
+                    width: 80%;
+                    border-radius: 8px;
+                    border: 1px solid $gray-500;
+                    padding-left: 2.5rem;
+                }
+
+                i {
+                    position: absolute;
+                    z-index: 1;
+                    margin-top: 1.4rem;
+                    margin-left: 1rem;
+                    color: $gray-500;
+                }
+            }
+
+            p {
+                margin: 1rem 0 0 0;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+
         }
-      }
-      .email-subscribe{
-        padding-top: 2rem;
-        display: flex;
-        gap: 1rem;
-
-
-        .email-input{
-          width: 80%;
-          border-radius: 8px;
-          border: 1px solid $gray-100;
-          padding-left: 1rem;
-          font-family: $font-manrope;
-
-          &::placeholder{
-          font-family: "Font Awesome 5 Pro";
-          }
-        }
-      }
-    p{
-      margin: 1rem 0 0 0;
-
-        a{
-          text-decoration: underline;
-        }
-      }
     }
-  }
 }

@@ -130,6 +130,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                     user.Email = viewModel.BasicInfo.Email;
                     user.PhoneNumber = viewModel.BasicInfo.PhoneNumber;
                     user.Biography = viewModel.BasicInfo.Biography;
+                    user.ProfileImage = viewModel.ProfileInfo.ProfileImage;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
@@ -241,7 +242,6 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
         {
             var address = await _addressManager.GetAddressAsync(user.Id);
 
-            // Check if the address is not null before accessing its properties
             if (address != null)
             {
                 return new AddressInfoViewModel
@@ -253,7 +253,6 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                 };
             }
         }
-        // If address is null or user is null, return an empty AddressInfoViewModel
         return new AddressInfoViewModel();
     }
 }

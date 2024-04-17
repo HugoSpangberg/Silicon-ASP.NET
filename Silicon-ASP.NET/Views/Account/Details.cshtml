@@ -7,7 +7,10 @@
     <section id="account-details">
         <aside>
             <div class="profile-info">
-                <img src="" alt="@($" ")" />
+                <div class="image-cropper">
+                    <img src="~/uploads/@($"{Model.ProfileInfo.ProfileImage}")" alt="" />
+
+                </div>
                 <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
                 <p>@Model.ProfileInfo.Email</p>
             </div>

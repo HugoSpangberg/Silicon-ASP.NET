@@ -740,15 +740,19 @@ main .showcase .container .brands img {
   display: flex;
   gap: 1rem;
 }
-#newsletter .container .container-child .email-subscribe .email-input {
+#newsletter .container .container-child .email-subscribe input {
+  position: relative;
   width: 80%;
   border-radius: 8px;
-  border: 1px solid #F3F6FF;
-  padding-left: 1rem;
-  font-family: "Manrope", sans-serif;
+  border: 1px solid #B4B7C9;
+  padding-left: 2.5rem;
 }
-#newsletter .container .container-child .email-subscribe .email-input::placeholder {
-  font-family: "Font Awesome 5 Pro";
+#newsletter .container .container-child .email-subscribe i {
+  position: absolute;
+  z-index: 1;
+  margin-top: 1.4rem;
+  margin-left: 1rem;
+  color: #B4B7C9;
 }
 #newsletter .container .container-child p {
   margin: 1rem 0 0 0;
@@ -885,6 +889,9 @@ main .showcase .container .brands img {
 #account-details aside .profile-info {
   margin: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #account-details aside .profile-info h5 {
   margin-top: 15px;
@@ -896,6 +903,20 @@ main .showcase .container .brands img {
   color: #565973;
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
+}
+#account-details aside .profile-info .image-cropper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+#account-details aside .profile-info .image-cropper img {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -30%;
+  height: 100%;
+  width: auto;
 }
 #account-details aside nav {
   margin-top: 50px;

@@ -27,19 +27,21 @@ namespace Silicon_ASP.NET.Controllers
                 var response = await _httpClient.PostAsync("https://localhost:7078/api/subscribers", content);
                 if (response.IsSuccessStatusCode)
                 {
+
                     TempData["StatusMessage"] = "You are now subscribed";
+                    
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
                 {
                     TempData["StatusMessage"] = "You are already subscribed";
-
+                    ViewBag.StatusClass = "warning";
                 }
 
             }
             else
             {
                 TempData["StatusMessage"] = "Invalid email address";
-
+                ViewBag.StatusClass = "error";
             }
             return RedirectToAction("Home", "Default", "_newsletter");
         }

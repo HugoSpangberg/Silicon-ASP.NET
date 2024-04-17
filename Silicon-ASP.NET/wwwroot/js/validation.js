@@ -14,6 +14,7 @@ const formErrorHandler = (element, validationResult) => {
     }
 }
 
+
 const compareValidator = (element, compareValue) => {
     if (element.value === compareValue)
         return true
