@@ -894,7 +894,7 @@ main .showcase .container .brands img {
   align-items: center;
 }
 #account-details aside .profile-info h5 {
-  margin-top: 15px;
+  margin-top: 4rem;
   margin-bottom: 0;
 }
 #account-details aside .profile-info p {
@@ -907,9 +907,10 @@ main .showcase .container .brands img {
 #account-details aside .profile-info .image-cropper {
   width: 100px;
   height: 100px;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   border-radius: 50%;
+  position: absolute;
 }
 #account-details aside .profile-info .image-cropper img {
   display: inline;
@@ -917,6 +918,15 @@ main .showcase .container .brands img {
   margin-left: -30%;
   height: 100%;
   width: auto;
+}
+#account-details aside .profile-info label {
+  z-index: 1;
+  position: relative;
+  left: 2rem;
+  top: 4.5rem;
+  background-color: white;
+  padding: 0;
+  margin: 0;
 }
 #account-details aside nav {
   margin-top: 50px;

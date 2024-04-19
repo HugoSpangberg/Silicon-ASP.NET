@@ -16,7 +16,7 @@
             align-items: center;
 
             h5 {
-                margin-top: 15px;
+                margin-top: 4rem;
                 margin-bottom: 0;
             }
 
@@ -27,17 +27,30 @@
             .image-cropper {
                 width: 100px;
                 height: 100px;
-                position: relative;
+                position: absolute;
                 overflow: hidden;
                 border-radius: 50%;
+                position: absolute;
+
 
                 img {
                     display: inline;
                     margin: 0 auto;
-                    margin-left: -30%; 
+                    margin-left: -30%;
                     height: 100%;
                     width: auto;
                 }
+            }
+
+            label {
+                z-index: 1;
+                position: relative;
+                left: 2rem;
+                top: 4.5rem;
+                background-color: white;
+                padding: 0;
+                margin: 0;
+
             }
         }
 

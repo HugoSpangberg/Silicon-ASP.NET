@@ -195,6 +195,11 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
 
         return View(viewModel);
     }
+    [HttpPost]
+    public async Task<IActionResult> UploadImage(IFormFile file)
+    {
+        return RedirectToAction("Details", "Account");
+    }
 
 
     private async Task<BasicInfoViewModel> PopulateBasicInfoAsync()

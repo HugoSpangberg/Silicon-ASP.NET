@@ -1,25 +1,16 @@
 ﻿@model AccountDetailsViewModel
+
+@{
+    Layout = "_AccountLayout";
+}
+
+
 @{
     ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile";
 }
 
-<div class="container">
-    <section id="account-details">
-        <aside>
-            <div class="profile-info">
-                <div class="image-cropper">
-                    <img src="~/uploads/@($"{Model.ProfileInfo.ProfileImage}")" alt="" />
 
-                </div>
-                <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
-                <p>@Model.ProfileInfo.Email</p>
-            </div>
 
-            <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
-            </nav>
-        </aside>
 
         <div class="details">
             <section class="basic-info">
@@ -103,7 +94,6 @@
                 </form>
             </section>
         </div>
-    </section>
-</div>
+
 
 
