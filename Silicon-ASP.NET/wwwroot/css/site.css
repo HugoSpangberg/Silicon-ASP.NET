@@ -516,6 +516,24 @@ header .container .account-buttons {
     display: flex;
   }
 }
+header .container .account-buttons .profile-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .container .account-buttons .profile-info .image-cropper {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #EFF2FC;
+}
+header .container .account-buttons .profile-info .image-cropper img {
+  display: inline;
+  height: auto;
+  width: 100%;
+}
 header .container .btn-mobile {
   grid-area: mobile;
   display: block;
@@ -893,8 +911,24 @@ main .showcase .container .brands img {
   flex-direction: column;
   align-items: center;
 }
+#account-details aside .profile-info form {
+  width: 0;
+  margin: 0;
+}
+#account-details aside .profile-info form label {
+  box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+  padding: 5px;
+  border-radius: 50%;
+  margin: 0;
+  border: 1px solid #B4B7C9;
+}
+#account-details aside .profile-info form label i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #account-details aside .profile-info h5 {
-  margin-top: 4rem;
+  margin-top: 6rem;
   margin-bottom: 0;
 }
 #account-details aside .profile-info p {
@@ -911,13 +945,13 @@ main .showcase .container .brands img {
   overflow: hidden;
   border-radius: 50%;
   position: absolute;
+  border: 1px solid #EFF2FC;
 }
 #account-details aside .profile-info .image-cropper img {
   display: inline;
   margin: 0 auto;
-  margin-left: -30%;
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 #account-details aside .profile-info label {
   z-index: 1;

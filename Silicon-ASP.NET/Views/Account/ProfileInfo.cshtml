@@ -1,16 +1,21 @@
 ﻿@model AccountDetailsViewModel
 
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 
+@if (user != null)
+{
+    <div class="profile-info">
+        <div class="image-cropper">
+            <img src="~/uploads/@user.ProfileImage" alt="" />
 
-<div class="profile-info">
-    <div class="image-cropper">
-        <img src="~/uploads/@($"{Model.ProfileInfo.ProfileImage}")" alt="" />
-
+        </div>
+        <form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
+            <input id="uploadFile" type="file" name="file" hidden />
+            <label for="uploadFile" class="btn btn-circle"><i class="fa-regular fa-refresh"></i></label>
+        </form>
+        <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
+        <p>@Model.ProfileInfo.Email</p>
     </div>
-    <form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
-        <input id="uploadFile" type="file" name="file" hidden/>
-        <label class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
-    </form>
-    <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
-    <p>@Model.ProfileInfo.Email</p>
-</div>
+}

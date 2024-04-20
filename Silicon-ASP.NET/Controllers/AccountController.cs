@@ -12,12 +12,14 @@ namespace Silicon_ASP.NET.Controllers;
 
 
 
-public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AddressManager addressManager) : Controller
+public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AddressManager addressManager, AccountManager accountManager) : Controller
 {
 
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly AddressManager _addressManager = addressManager;
+
+    private readonly AccountManager _accountManager = accountManager;
 
     [HttpGet]
     [Route("/signup")]
@@ -68,7 +70,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     {
         if (_signInManager.IsSignedIn(User))
         {
-            return RedirectToAction("Details", "Account");
+            return RedirectToAction("Home", "Default");
         }
         return View();
     }
@@ -82,7 +84,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
             var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Details", "Account");
+                return RedirectToAction("Home", "Default");
             }
         }
         ModelState.AddModelError("IncorrectValues", "Incorrect email or password");
@@ -195,9 +197,12 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
 
         return View(viewModel);
     }
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> UploadImage(IFormFile file)
     {
+        var result = await _accountManager.UploadUserProfileImageAsync(User, file);
+
         return RedirectToAction("Details", "Account");
     }
 
@@ -206,7 +211,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     {
         var user = await _userManager.GetUserAsync(User);
 
-        if(user != null) 
+        if (user != null)
         {
             return new BasicInfoViewModel
             {
@@ -227,7 +232,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
     {
         var user = await _userManager.GetUserAsync(User);
 
-        if(user  != null) 
+        if (user != null)
         {
             return new ProfileInfoViewModel
             {
