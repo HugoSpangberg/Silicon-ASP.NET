@@ -8,7 +8,7 @@
 
                 @foreach (var course in Model)
                 {
-                   <a asp-action="details" asp-controller="courses">
+                <a asp-action="details" asp-controller="courses" asp-route-id="@course.Id">
                     <div class="courses-content">
                         <img src="~/images/courses/@course.imageUrl" alt="">
                         @if (course.IsBestSeller == true)

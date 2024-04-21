@@ -16,6 +16,7 @@ form {
                 right: 0;
                 @include text-s;
                 color: $danger;
+
             }
         }
     }
@@ -55,6 +56,7 @@ form {
         &.input-validation-error {
             border: 0.063 solid $danger !important;
             color: $danger;
+
 
             &::placeholder {
                 color: $danger;

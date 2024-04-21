@@ -2,5 +2,45 @@
 
 
 
-    <div>@Model.Title</div>
+<section id="courses">
+
+    <div class="container">
+        <h1>Courses</h1>
+        <div class="grid-content">
+                <a asp-action="details" asp-controller="courses" >
+                    <div class="courses-content">
+                    <img src="~/images/courses/@Model.imageUrl" alt="">
+                        @if (Model.IsBestSeller == true)
+                        {
+                            <h4>Best Seller</h4>
+                        }
+                        <div class="courses-content-child">
+                            <h5>@Model.Title</h5>
+                             <p>By @Model.Author</p>
+                             @if (Model.DiscountPrice == 0)
+                            {
+                             <h6>$@Model.Price</h6>
+                            }
+                            else
+                            {
+                                <div class="discount-price">
+                                    <h2 class="discount">@Model.DiscountPrice</h2>
+                                    <h6>$@Model.Price</h6>
+                                </div>
+                            }
+
+                            <hr>
+                            <div class="content-child">
+                                <i class="fa-regular fa-clock"></i>
+                            <p>@Model.Hours Hours</p>
+                                <i class="fa-light fa-thumbs-up"></i>
+                            <p>(@Model.LikesInProcent.ToString("P0")) (@(Math.Round(Model.LikesInNumbers / 1000, 1))K)</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        </div>
+    </div>
+</section>
 

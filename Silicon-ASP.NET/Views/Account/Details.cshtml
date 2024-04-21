@@ -61,6 +61,12 @@
             <section class="address-info">
                 <form method="post" asp-controller="Account" asp-action="Details" novalidate>
                     <h5>Address</h5>
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <div class="alert alert-danger">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
                     <div class="content">
                         <div id="form-addressline-1" class="input-group">
                             <label asp-for="AddressInfo.AddressLine_1"></label>
@@ -96,4 +102,4 @@
         </div>
 
 
-
+@await Html.PartialAsync("~/Views/Shared/Sections/_ValidationScriptPartial.cshtml")

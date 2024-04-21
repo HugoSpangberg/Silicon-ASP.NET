@@ -13,7 +13,7 @@ public class SignUpViewModel
 
     [DataType(DataType.Text)]
     [Display(Name = "Last name", Prompt = "Your last name")]
-    [Required(ErrorMessage = "A valid lasr name is required")]
+    [Required(ErrorMessage = "A valid last name is required")]
     public string LastName { get; set; } = null!;
 
 

@@ -18,10 +18,11 @@ namespace Silicon_ASP.NET.Controllers
             return View(data);
         }
 
-        public async Task<IActionResult> Details()
+
+        public async Task<IActionResult> Details(int id)
         {
             using var http = new HttpClient();
-            var response = await http.GetAsync("https://localhost:7078/api/Courses/3");
+            var response = await http.GetAsync($"https://localhost:7078/api/Courses/{id}");
             var json = await response.Content.ReadAsStringAsync();
             var data = JsonConvert.DeserializeObject<CourseEntity>(json);
             return View(data);

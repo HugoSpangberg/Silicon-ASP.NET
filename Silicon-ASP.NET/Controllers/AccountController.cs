@@ -132,7 +132,6 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                     user.Email = viewModel.BasicInfo.Email;
                     user.PhoneNumber = viewModel.BasicInfo.PhoneNumber;
                     user.Biography = viewModel.BasicInfo.Biography;
-                    user.ProfileImage = viewModel.ProfileInfo.ProfileImage;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)

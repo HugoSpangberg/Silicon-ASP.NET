@@ -14,19 +14,19 @@ namespace Silicon_ASP.NET.ViewModels
     public class BasicInfoViewModel
     {
         [DataType(DataType.Text)]
-        [Display(Name = "First name")]
+        [Display(Name = "First name", Prompt = "Enter your first name")]
         [Required(ErrorMessage = "A valid first name is required")]
         public string FirstName { get; set; } = null!;
 
 
         [DataType(DataType.Text)]
-        [Display(Name = "Last name")]
+        [Display(Name = "Last name", Prompt = "Enter your last name")]
         [Required(ErrorMessage = "A valid last name is required")]
         public string LastName { get; set; } = null!;
 
 
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email")]
+        [Display(Name = "Email", Prompt = "Enter your email address")]
         [Required(ErrorMessage = "A valid email address is required")]
         public string Email { get; set; } = null!;
 
@@ -47,20 +47,23 @@ namespace Silicon_ASP.NET.ViewModels
 
     public class AddressInfoViewModel
     {
-        [Display(Name = "Address Line 1")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Address Line 1", Prompt = "Enter your address line")]
         [Required(ErrorMessage = "Address line 1 is required")]
         public string? AddressLine_1 { get; set; }
 
-        [Display(Name = "Address Line 2")]
+        [Display(Name = "Address Line 2", Prompt = "Enter your second address line")]
         public string? AddressLine_2 { get; set; }
-
-        [Display(Name = "Postal Code")]
+        
+        [DataType(DataType.PostalCode)]
+        [Display(Name = "Postal Code", Prompt = "Enter your postal code")]
         [Required(ErrorMessage = "Postal code is required")]
         public string? PostalCode { get; set; }
 
-        [Display(Name = "City")]
+        [DataType(DataType.Text)]
+        [Display(Name = "City", Prompt = "Enter your city")]
         [Required(ErrorMessage = "City is required")]
-        public string? City { get; set; }
+        public string? City { get; set; } 
     }
 
     public class ProfileInfoViewModel
@@ -72,6 +75,6 @@ namespace Silicon_ASP.NET.ViewModels
 
         public string Email { get; set; } = null!;
 
-        public string? ProfileImage { get; set; } = "avatar.png";
+        public string? ProfileImage { get; set; }
     }
 }
